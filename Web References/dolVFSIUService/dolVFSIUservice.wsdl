@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Call-MMCONF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="INPUT-VAL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Call-MMCONFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Call-MMCONFResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Call-MMCUPD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="INPUT-VAL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Call-MMCUPDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Call-MMCUPDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Call-MMVDCU">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="INPUT-VAL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Call-MMVDCUResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Call-MMVDCUResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Call-VFSIUEcho">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="INPUT-VAL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Call-VFSIUEchoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Call-VFSIUEchoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Call-MMCONFSoapIn">
+    <wsdl:part name="parameters" element="tns:Call-MMCONF" />
+  </wsdl:message>
+  <wsdl:message name="Call-MMCONFSoapOut">
+    <wsdl:part name="parameters" element="tns:Call-MMCONFResponse" />
+  </wsdl:message>
+  <wsdl:message name="Call-MMCUPDSoapIn">
+    <wsdl:part name="parameters" element="tns:Call-MMCUPD" />
+  </wsdl:message>
+  <wsdl:message name="Call-MMCUPDSoapOut">
+    <wsdl:part name="parameters" element="tns:Call-MMCUPDResponse" />
+  </wsdl:message>
+  <wsdl:message name="Call-MMVDCUSoapIn">
+    <wsdl:part name="parameters" element="tns:Call-MMVDCU" />
+  </wsdl:message>
+  <wsdl:message name="Call-MMVDCUSoapOut">
+    <wsdl:part name="parameters" element="tns:Call-MMVDCUResponse" />
+  </wsdl:message>
+  <wsdl:message name="Call-VFSIUEchoSoapIn">
+    <wsdl:part name="parameters" element="tns:Call-VFSIUEcho" />
+  </wsdl:message>
+  <wsdl:message name="Call-VFSIUEchoSoapOut">
+    <wsdl:part name="parameters" element="tns:Call-VFSIUEchoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="dolVFSIUServiceSoap">
+    <wsdl:operation name="Call-MMCONF">
+      <wsdl:input message="tns:Call-MMCONFSoapIn" />
+      <wsdl:output message="tns:Call-MMCONFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Call-MMCUPD">
+      <wsdl:input message="tns:Call-MMCUPDSoapIn" />
+      <wsdl:output message="tns:Call-MMCUPDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Call-MMVDCU">
+      <wsdl:input message="tns:Call-MMVDCUSoapIn" />
+      <wsdl:output message="tns:Call-MMVDCUSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Call-VFSIUEcho">
+      <wsdl:input message="tns:Call-VFSIUEchoSoapIn" />
+      <wsdl:output message="tns:Call-VFSIUEchoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="dolVFSIUServiceSoap" type="tns:dolVFSIUServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <wsdl:operation name="Call-MMCONF">
+      <soap:operation soapAction="http://tempuri.org/Call-MMCONF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Call-MMCUPD">
+      <soap:operation soapAction="http://tempuri.org/Call-MMCUPD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Call-MMVDCU">
+      <soap:operation soapAction="http://tempuri.org/Call-MMVDCU" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Call-VFSIUEcho">
+      <soap:operation soapAction="http://tempuri.org/Call-VFSIUEcho" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="dolVFSIUService">
+    <wsdl:port name="dolVFSIUServiceSoap" binding="tns:dolVFSIUServiceSoap">
+      <soap:address location="http://198.7.86.216/Applications/VSD/HP3000/vsdServiceHPDev6/dolVFSIUservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

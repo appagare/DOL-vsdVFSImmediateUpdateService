@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Call-MMZADU">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="INPUT-VAL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Call-MMZADUResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Call-MMZADUResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Call-MMZADUSoapIn">
+    <wsdl:part name="parameters" element="tns:Call-MMZADU" />
+  </wsdl:message>
+  <wsdl:message name="Call-MMZADUSoapOut">
+    <wsdl:part name="parameters" element="tns:Call-MMZADUResponse" />
+  </wsdl:message>
+  <wsdl:portType name="dolSPAserviceSoap">
+    <wsdl:operation name="Call-MMZADU">
+      <wsdl:input message="tns:Call-MMZADUSoapIn" />
+      <wsdl:output message="tns:Call-MMZADUSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="dolSPAserviceSoap" type="tns:dolSPAserviceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <wsdl:operation name="Call-MMZADU">
+      <soap:operation soapAction="http://tempuri.org/Call-MMZADU" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="dolSPAservice">
+    <wsdl:port name="dolSPAserviceSoap" binding="tns:dolSPAserviceSoap">
+      <soap:address location="http://198.7.86.216/Applications/VSD/HP3000/vsdServiceHPDev5/dolSPAservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
